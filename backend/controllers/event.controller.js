@@ -82,7 +82,7 @@ export const getEventsByCity = async (req, res) => {
     const { city } = req.params;
 
     try {
-        const events = await Event.find({ place: city });
+        const events = await Event.find({ city : city });
         if (events.length > 0) {
             res.status(200).json({ success: true, data: events });
         } else {
