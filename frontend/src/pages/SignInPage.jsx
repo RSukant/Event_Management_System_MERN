@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Container, VStack, Heading, Box, Input, Button, useColorModeValue, useToast } from '@chakra-ui/react';
 import { InputGroup, InputRightElement } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import axios from "axios";
+import axios from "../api/axios";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -24,7 +24,7 @@ const UserCreatePage = () => {
 
   const handleCreateUser = async() => {
     try{
-        const response = await axios.post(`http://localhost:5000/api/users`, newUser);
+        const response = await axios.post(`/api/users`, newUser);
         const {success,message} = response.data;
         if(success){
           const { data:user } = response.data;

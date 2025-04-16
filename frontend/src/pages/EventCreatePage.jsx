@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Container, VStack, Heading, Box, Input, Button, useColorModeValue, useToast } from '@chakra-ui/react';
-import axios from "axios";
+import axios from "../api/axios";
 import { Textarea } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,7 +30,7 @@ const EventCreatePage = () => {
           city: newEvent.city.toLowerCase(),
         };
 
-        const response = await axios.post(`http://localhost:5000/api/events`, eventData);
+        const response = await axios.post(`/api/events`, eventData);
         const {success,message} = response.data;
         if(success){
         toast({

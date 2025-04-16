@@ -1,6 +1,6 @@
 import { Box, Container, Heading, Text, VStack, FormControl, FormLabel, Input, Textarea, Button, useToast, Select, useColorModeValue } from '@chakra-ui/react';
 import { useState } from 'react';
-import axios from 'axios';
+import axios from '../api/axios';
 import { useNavigate } from 'react-router-dom';
   
   const FeedbackPage = () => {
@@ -18,7 +18,7 @@ import { useNavigate } from 'react-router-dom';
         e.preventDefault();
 
         try{
-            const response = await axios.post(`http://localhost:5000/api/feedback`, feedback);
+            const response = await axios.post(`/api/feedback`, feedback);
             const {success,message} = response.data;
             if(success){
             toast({

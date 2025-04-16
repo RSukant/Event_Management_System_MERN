@@ -3,7 +3,7 @@ import { Box, Heading, IconButton, Image, HStack, Text, useColorModeValue, useTo
 import { Input, VStack } from '@chakra-ui/react'
 import { ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, ModalFooter, Button } from '@chakra-ui/react'
 import { useState } from 'react'
-import axios from 'axios'
+import axios from '../api/axios'
 import { EditIcon, DeleteIcon, InfoOutlineIcon } from '@chakra-ui/icons'
 import { Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerBody, DrawerFooter, DrawerCloseButton } from '@chakra-ui/react';
 
@@ -22,7 +22,7 @@ const EventCard = ({ event, onEventUpdated }) => {
 
     const handleDeleteEvent = async (eid) => {
         try {
-            const response = await axios.delete(`http://localhost:5000/api/events/${eid}`);
+            const response = await axios.delete(`/api/events/${eid}`);
             const { success, message } = response.data;
 
             if (success) {
@@ -56,7 +56,7 @@ const EventCard = ({ event, onEventUpdated }) => {
 
     const handleUpdateEvent = async (eid, updatedEvent) => {
         try {
-            const response = await axios.put(`http://localhost:5000/api/events/${eid}`, updatedEvent);
+            const response = await axios.put(`/api/events/${eid}`, updatedEvent);
             const { success, message } = response.data;
 
             onClose();

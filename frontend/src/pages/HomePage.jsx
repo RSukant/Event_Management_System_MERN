@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import EventCard from '../components/EventCard'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import axios from '../api/axios'
 import { useState } from 'react'
 
 const HomePage = () => {
@@ -21,7 +21,7 @@ const HomePage = () => {
     const fetchEventsByCity = async () => {
         try{
             const cityQuery = city.trim().toLowerCase();
-            const response = await axios.get(`http://localhost:5000/api/events/location/${cityQuery}`);
+            const response = await axios.get(`/api/events/location/${cityQuery}`);
             setEvents(response.data.data || []);
         } catch(error){
             console.error('Error fetching events:', error);

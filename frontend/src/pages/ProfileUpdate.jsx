@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Container, VStack, HStack, Heading, Box, Input, Button, useColorModeValue, useToast, InputGroup } from '@chakra-ui/react';
-import axios from "axios";
+import axios from "../api/axios";
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { InputRightElement } from '@chakra-ui/react';
 
@@ -19,7 +19,7 @@ const ProfileUpdatePage = () => {
 
   const handleUpdateUser = async (eid, newUser) => {
     try {
-        const response = await axios.put(`http://localhost:5000/api/users/${eid}`, newUser);
+        const response = await axios.put(`/api/users/${eid}`, newUser);
         const { success, message } = response.data;
 
         if (success) {

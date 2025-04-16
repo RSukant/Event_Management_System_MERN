@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import UserEventCard from '../components/UserEventCard'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import axios from '../api/axios'
 import { useState } from 'react'
 
 const UserEventsPage = () => {
@@ -18,7 +18,7 @@ const UserEventsPage = () => {
         }
 
         try {
-            const response = await axios.get(`http://localhost:5000/api/events/${user.username}`);
+            const response = await axios.get(`/api/events/${user.username}`);
             setEvents(response.data.data);
         } catch (error) {
             console.error('Error fetching events:', error);

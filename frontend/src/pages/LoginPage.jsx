@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Container, VStack, Heading, Box, Input, Button, useColorModeValue, useToast } from '@chakra-ui/react';
 import { InputGroup, InputRightElement } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import axios from "axios";
+import axios from "../api/axios";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -23,10 +23,10 @@ const CheckUserPage = () => {
 
   const checkExistingUser = async() => {
     try{
-        const response = await axios.post(`http://localhost:5000/api/users/login`, { email : presentUser.email, password : presentUser.password });
+        const response = await axios.post(`/api/users/login`, { email : presentUser.email, password : presentUser.password });
         const {success,message} = response.data;
         if(success){
-          const anotherResponse = await axios.get(`http://localhost:5000/api/users/account/${presentUser.email}`);
+          const anotherResponse = await axios.get(`/api/users/account/${presentUser.email}`);
           const { data:user } = anotherResponse.data;
 
           localStorage.setItem("user", JSON.stringify(user));
