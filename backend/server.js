@@ -28,7 +28,6 @@ app.listen(PORT, () => {
     console.log('Server started at http://localhost:' + PORT);
 });
 
-const cors = require('cors');
 app.use(cors({
   origin: 'https://event-management-system-mern-1-zt1e.onrender.com',
   credentials: true
