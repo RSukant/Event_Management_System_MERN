@@ -29,7 +29,7 @@ app.listen(PORT, () => {
 });
 
 app.use(cors({
-  origin: 'https://event-management-system-mern-1-zt1e.onrender.com',
+  origin: 'https://event-management-system-mern-1-s784.onrender.com',
   credentials: true
 }));
 
