@@ -33,7 +33,13 @@ import { Link } from 'react-router-dom';
             <Text fontSize="25" fontWeight="bold">Participate in Events using Event Besties</Text>
 
             <Link to="/create">
-            <Button size='md' bg={useColorModeValue('blue.500', 'blue.600')} w='50%'>Create Event</Button>
+            <Button 
+            size='md' 
+            bg={useColorModeValue('blue.500', 'blue.600')} 
+            w="200px"
+            _hover={{ bg: useColorModeValue('blue.600', 'blue.700') }} >
+              Create Event
+            </Button>
             </Link>
   
           </SimpleGrid>
