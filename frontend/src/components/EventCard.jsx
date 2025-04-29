@@ -3,7 +3,7 @@ import { Box, Heading, IconButton, Image, HStack, Text, useColorModeValue, useTo
 import { Input, VStack } from '@chakra-ui/react'
 import { ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, ModalFooter, Button } from '@chakra-ui/react'
 import { useState } from 'react'
-import axios from '../api/axios'
+import axios from 'axios'
 import { EditIcon, DeleteIcon, InfoOutlineIcon } from '@chakra-ui/icons'
 import { Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerBody, DrawerFooter, DrawerCloseButton } from '@chakra-ui/react';
 
@@ -174,10 +174,10 @@ const EventCard = ({ event, onEventUpdated }) => {
                                 onChange={(e) => setUpdatedEvent({ ...updatedEvent, name: e.target.value })}
                             />
                             <Input
-                                placeholder="Event Place"
-                                name="place"
-                                value={updatedEvent.place || ''}
-                                onChange={(e) => setUpdatedEvent({ ...updatedEvent, place: e.target.value })}
+                                placeholder="Event City"
+                                name="city"
+                                value={updatedEvent.city || ''}
+                                onChange={(e) => setUpdatedEvent({ ...updatedEvent, city: e.target.value })}
                             />
                             <Input
                                 placeholder="Event Date"

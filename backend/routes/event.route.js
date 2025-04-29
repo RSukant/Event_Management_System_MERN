@@ -1,9 +1,9 @@
 import express from 'express';
-import { getEvents, createEvent, updateEvent, deleteEvent, getEventsByUsername, getEventsByCity } from '../controllers/event.controller.js';
+import { getEventsByCategory, createEvent, updateEvent, deleteEvent, getEventsByUsername, getEventsByCity } from '../controllers/event.controller.js';
 
 const router = express.Router();
 
-router.get('/', getEvents);
+router.get('/type/:category', getEventsByCategory);
 router.get('/:username', getEventsByUsername);
 router.get('/location/:city', getEventsByCity);
 router.post('/', createEvent);

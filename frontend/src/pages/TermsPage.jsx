@@ -2,7 +2,7 @@ import { Box, Container, Heading, Text, VStack, useColorModeValue } from '@chakr
   
   const TermsPage = () => {
     return (
-      <Box py={16} bg={useColorModeValue("gray.50", "gray.900")}>
+      <Box py={16}>
         <Container maxW="container.md">
           <VStack spacing={6} align="start">
             <Heading as="h1" size="xl" textAlign="left">

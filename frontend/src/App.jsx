@@ -1,7 +1,6 @@
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import EventCreate from './pages/EventCreatePage';
-import Home from './pages/HomePage';
 import Navbar from './components/Navbar';
 import SignInPage from './pages/SignInPage';
 import ManageAccountPage from './pages/ManageAccount';
@@ -15,6 +14,11 @@ import Terms from './pages/TermsPage';
 import PrivacyPolicy from './pages/PrivacyPolicyPage';
 import Support from './pages/SupportPage';
 import ScrollToTop from './components/ScrollToTop'; 
+import LandingPage from './pages/LandingPage';
+import ConferenceHomePage from './pages/ConferenceHomePage';
+import CulturalsHomePage from './pages/CulturalsHomePage';  
+import CompetitionHomePage from './pages/CompetitionHomePage';
+import WorkshopHomePage from './pages/WorkshopHomePage';
 
 function App() {
   const location = useLocation();
@@ -31,7 +35,11 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/signup" element={<SignInPage />} />
         <Route path="/create" element={<EventCreate />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/conference" element={<ConferenceHomePage />} />
+        <Route path="/culturals" element={<CulturalsHomePage />} />
+        <Route path="/competition" element={<CompetitionHomePage />} />
+        <Route path="/workshop" element={<WorkshopHomePage />} />
         <Route path="/userupdate" element={<UpdateUser />} />
         <Route path="/manage" element={<ManageAccountPage />} />
         <Route path="/userevents" element={<UserEvents />} />

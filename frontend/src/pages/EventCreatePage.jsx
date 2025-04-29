@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import { Container, VStack, Heading, Box, Input, Button, useColorModeValue, useToast } from '@chakra-ui/react';
-import axios from "../api/axios";
+import { Container, VStack, Heading, Box, Input, Button, useColorModeValue, useToast, Select } from '@chakra-ui/react';
+import axios from "axios";
 import { Textarea } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
@@ -35,12 +35,12 @@ const EventCreatePage = () => {
         if(success){
         toast({
             title: "Success",
-            description: message,
+            description: "Event created successfully",
             status: "success",
             duration: 5000,
             isClosable: true,
         });
-        navigate('/home');
+        navigate('/landing');
         } else {
         toast({
             title: "Error",
@@ -63,15 +63,15 @@ const EventCreatePage = () => {
 
   return <Container maxW={"container.sm"} py={9}>
     <VStack
-      spacing={8}
+      spacing={7}
     >
-      <Heading as={"h1"} size={"2xl"} textAlign={"center"} mb={2}>
+      <Heading as={"h1"} size={"2xl"} textAlign={"center"} mb={1}>
         Create New Event
       </Heading>
 
       <Box
         w={"full"} bg={useColorModeValue("white", "gray.800")}
-        p={8} rounded={"lg"} shadow={"md"}
+        p={7} rounded={"lg"} shadow={"md"}
       >
         <VStack spacing={4}>
           <Input
@@ -101,6 +101,17 @@ const EventCreatePage = () => {
           value={newEvent.date}
           onChange={(e) => setNewEvent({ ...newEvent, date: e.target.value })}
           />
+
+          <Select
+          placeholder="Select Category"
+          value={newEvent.category}
+          onChange={(e) => setNewEvent({ ...newEvent, category: e.target.value })}
+          >
+          <option value="culturals">Culturals</option>
+          <option value="conference">Conference</option>
+          <option value="workshop">Workshop</option>
+          <option value="competition">Competition</option>
+          </Select>
 
           <Textarea
           size="sm"

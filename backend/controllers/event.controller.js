@@ -1,12 +1,19 @@
 import mongoose from 'mongoose';
 import Event from '../models/event.model.js';
 
-export const getEvents = async (req, res) => {
-    try{
-        const events = await Event.find({});
-        res.status(200).json({ success: true, data: events });
-    } catch(error){
-        console.log("Error in Fetch events:", error.message);
+export const getEventsByCategory = async (req, res) => {
+    const { category } = req.params;
+
+    try {
+        const events = await Event.find({ category });
+        if (events.length > 0) {
+            res.status(200).json({ success: true, data: events });
+        } else {
+            res.status(404).json({ success: false, message: 'No events found for this category' });
+        }
+    }
+    catch (error) {
+        console.error("Error in Fetch events by category:", error.message);
         res.status(500).json({ success: false, message: 'Server Error' });
     }
 };
@@ -14,7 +21,7 @@ export const getEvents = async (req, res) => {
 export const createEvent = async (req, res) => {
     const event = req.body; //user will send data
 
-    if(!event.name || !event.city || !event.college || !event.date || !event.description || !event.image) {
+    if(!event.name || !event.city || !event.college || !event.date || !event.category || !event.description || !event.image) {
         return res.status(400).json({ success:false, message: 'Please provide all details' });
     }
 

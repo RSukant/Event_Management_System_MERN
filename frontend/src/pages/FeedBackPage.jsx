@@ -1,6 +1,6 @@
 import { Box, Container, Heading, Text, VStack, FormControl, FormLabel, Input, Textarea, Button, useToast, Select, useColorModeValue } from '@chakra-ui/react';
 import { useState } from 'react';
-import axios from '../api/axios';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
   
   const FeedbackPage = () => {
@@ -28,7 +28,7 @@ import { useNavigate } from 'react-router-dom';
                 duration: 5000,
                 isClosable: true,
             });
-            navigate('/home');
+            navigate('/landing');
             } else {
             toast({
                 title: "Error",
@@ -51,7 +51,7 @@ import { useNavigate } from 'react-router-dom';
   
   
     return (
-      <Box bg={useColorModeValue('gray.50', 'gray.900')} py={12}>
+      <Box py={12}>
         <Container maxW="container.md">
           <VStack spacing={6} textAlign="center" mb={10}>
             <Heading>We value your feedback</Heading>

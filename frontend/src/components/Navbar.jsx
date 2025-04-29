@@ -52,7 +52,7 @@ const Navbar = () => {
                 <Button  size="md" bg={colorMode === 'light' ? 'white' : 'gray.800'} onClick={ onOpen}>
                     <HamburgerIcon fontSize={20} />
                 </Button>
-                <Link to="/home"><i> Event Besties</i></Link>
+                <Link to="/landing"><i> Event Besties</i></Link>
             </Text>
 
             <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="xs">
@@ -65,7 +65,7 @@ const Navbar = () => {
 
                     <DrawerBody display="flex" flexDirection="column" justifyContent="space-between" p={6}>
                     <Box>
-                        <Link to="/home">
+                        <Link to="/landing">
                         <Text fontSize="lg" mb={4} cursor="pointer" _hover={{ color: 'blue.400' }} onClick={onClose}>
                             Home
                         </Text>

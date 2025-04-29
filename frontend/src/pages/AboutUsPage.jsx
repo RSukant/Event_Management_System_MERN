@@ -3,7 +3,7 @@ import { MdEventAvailable, MdPeople, MdVerified } from 'react-icons/md';
   
   const AboutUsPage = () => {
     return (
-      <Box bg={useColorModeValue("gray.50", "gray.900")} py={16}>
+      <Box py={16}>
         <Container maxW="container.lg">
           <VStack spacing={6} textAlign="center" mb={12}>
             <Heading fontSize="4xl">About Event Besties</Heading>

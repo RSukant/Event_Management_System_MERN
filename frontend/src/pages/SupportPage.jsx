@@ -3,7 +3,7 @@ import { MdEmail, MdHelp, MdSupportAgent } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom'
 import { useToast } from '@chakra-ui/react'
 import { useState } from 'react';
-import axios from '../api/axios'
+import axios from 'axios'
   
   const SupportPage = () => {
     const [help, setHelp] = useState({
@@ -29,7 +29,7 @@ import axios from '../api/axios'
                     duration: 5000,
                     isClosable: true,
                 });
-                navigate('/home');
+                navigate('/landing');
                 } else {
                 toast({
                     title: "Error",
@@ -51,7 +51,7 @@ import axios from '../api/axios'
           };
   
     return (
-      <Box bg={useColorModeValue("gray.50", "gray.900")} py={10}>
+      <Box py={10}>
         <Container maxW="container.md">
           <VStack spacing={6} textAlign="center" mb={10}>
             <Heading>Need Help?</Heading>

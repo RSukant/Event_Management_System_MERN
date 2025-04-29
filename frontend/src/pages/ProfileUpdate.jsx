@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Container, VStack, HStack, Heading, Box, Input, Button, useColorModeValue, useToast, InputGroup } from '@chakra-ui/react';
-import axios from "../api/axios";
+import axios from "axios";
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { InputRightElement } from '@chakra-ui/react';
 

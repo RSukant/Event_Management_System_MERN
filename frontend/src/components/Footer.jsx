@@ -35,8 +35,8 @@ import { Link } from 'react-router-dom';
             <Link to="/create">
             <Button 
             size='md' 
-            bg={useColorModeValue('blue.500', 'blue.600')} 
             w="200px"
+            colorScheme='blue'
             _hover={{ bg: useColorModeValue('blue.600', 'blue.700') }} >
               Create Event
             </Button>

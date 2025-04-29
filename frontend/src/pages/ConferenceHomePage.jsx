@@ -4,10 +4,10 @@ import { useEffect } from 'react'
 import EventCard from '../components/EventCard'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import axios from '../api/axios'
+import axios from 'axios'
 import { useState } from 'react'
 
-const HomePage = () => {
+const ConferenceHomePage = () => {
     const [city, setCity] = useState(''); // State to store location input
     const [events, setEvents] = useState([]); // State to store events
     const [loading, setLoading] = useState(true); // State to manage loading state
@@ -17,6 +17,7 @@ const HomePage = () => {
     const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
     const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
     const totalPages = Math.ceil(events.length / eventsPerPage);
+    const category = "conference";
 
     const fetchEventsByCity = async () => {
         try{
@@ -31,9 +32,9 @@ const HomePage = () => {
         }
     };
 
-    const fetchEvents = async () => {
+    const fetchEventsByCategory = async () => {
         try {
-            const response = await axios.get(`/api/events`);
+            const response = await axios.get(`/api/events/type/${category}`);
             setEvents(response.data.data);
         } catch (error) {
             console.error('Error fetching events:', error);
@@ -43,7 +44,7 @@ const HomePage = () => {
     };
 
     useEffect(() => {
-        fetchEvents();
+        fetchEventsByCategory();
     }, []);
 
     return (
@@ -98,7 +99,7 @@ const HomePage = () => {
                         w="full"
                     >
                         {currentEvents.map((event) => (
-                            <EventCard key={event._id} event={event} onEventUpdated={fetchEvents} />
+                            <EventCard key={event._id} event={event} onEventUpdated={fetchEventsByCategory} />
                         ))}
 
                     </SimpleGrid>
@@ -124,4 +125,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default ConferenceHomePage;

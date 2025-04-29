@@ -3,7 +3,7 @@ import { Box, Heading, IconButton, Image, HStack, Text, useColorModeValue, useTo
 import { Input, VStack } from '@chakra-ui/react'
 import { ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, ModalFooter, Button } from '@chakra-ui/react'
 import { useState } from 'react'
-import axios from '../api/axios'
+import axios from 'axios'
 import { EditIcon, DeleteIcon, InfoOutlineIcon } from '@chakra-ui/icons'
 import { Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerBody, DrawerFooter, DrawerCloseButton } from '@chakra-ui/react';
 
@@ -13,6 +13,8 @@ const UserEventCard = ({ event, onUserEventUpdated }) => {
     const textColor = useColorModeValue('gray.600', 'gray.200');
     const bg = useColorModeValue('white', 'gray.800');
     const user = JSON.parse(localStorage.getItem('user')) || {};
+
+    const { isOpen: isImageModalOpen, onOpen: onImageModalOpen, onClose: onImageModalClose } = useDisclosure();
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { isOpen: isDrawerOpen, onOpen: onDrawerOpen, onClose: onDrawerClose } = useDisclosure();
@@ -97,14 +99,17 @@ const UserEventCard = ({ event, onUserEventUpdated }) => {
             _hover={{ transform: 'translateY(-5px)', shadow: 'xl' }}
             bg={bg}
         >
-            <Image src={event.image} alt={event.name} h="48" w="full" objectFit="cover" />
+            <Image src={event.image} alt={event.name} h="48" w="full" objectFit="cover" cursor="pointer" onClick={onImageModalOpen}/>
 
             <Box p={4}>
                 <Heading as="h3" size="md" mb={2}>
                     {event.name}
                 </Heading>
-                <Text fontWeight="bold" fontSize="xl" color={textColor} mb={4}>
-                    {event.date}
+                <Text fontSize="xl" color={textColor} mb={1}>
+                    Date : {event.date}
+                </Text>
+                <Text fontSize="xl" color={textColor} mb={3}>
+                    City : {event.city}
                 </Text>
 
                 <HStack spacing={2}>
@@ -114,6 +119,21 @@ const UserEventCard = ({ event, onUserEventUpdated }) => {
 
                 </HStack>
             </Box>
+
+            <Modal isOpen={isImageModalOpen} onClose={onImageModalClose} isCentered size="xl">
+            <ModalOverlay />
+            <ModalContent bg="transparent" boxShadow="none">
+            <ModalCloseButton color="white" />
+            <Image
+                src={event.image}
+                alt={event.name}
+                borderRadius="md"
+                maxH="90vh"
+                mx="auto"
+                objectFit="contain"
+            />
+            </ModalContent>
+            </Modal>
 
             <Drawer
                 isOpen={isDrawerOpen}
@@ -152,10 +172,10 @@ const UserEventCard = ({ event, onUserEventUpdated }) => {
                                 onChange={(e) => setUpdatedEvent({ ...updatedEvent, name: e.target.value })}
                             />
                             <Input
-                                placeholder="Event Place"
-                                name="place"
-                                value={updatedEvent.place || ''}
-                                onChange={(e) => setUpdatedEvent({ ...updatedEvent, place: e.target.value })}
+                                placeholder="Event City"
+                                name="city"
+                                value={updatedEvent.city || ''}
+                                onChange={(e) => setUpdatedEvent({ ...updatedEvent, city: e.target.value })}
                             />
                             <Input
                                 placeholder="Event Date"
