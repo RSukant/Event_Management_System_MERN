@@ -3,7 +3,7 @@ import { Box, Heading, IconButton, Image, HStack, Text, useColorModeValue, useTo
 import { Input, VStack } from '@chakra-ui/react'
 import { ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, ModalFooter, Button } from '@chakra-ui/react'
 import { useState } from 'react'
-import axios from 'axios'
+import axios from "../api/axios";
 import { EditIcon, DeleteIcon, InfoOutlineIcon } from '@chakra-ui/icons'
 import { Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerBody, DrawerFooter, DrawerCloseButton } from '@chakra-ui/react';
 

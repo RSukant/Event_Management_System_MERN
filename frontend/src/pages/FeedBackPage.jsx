@@ -1,6 +1,6 @@
 import { Box, Container, Heading, Text, VStack, FormControl, FormLabel, Input, Textarea, Button, useToast, Select, useColorModeValue } from '@chakra-ui/react';
 import { useState } from 'react';
-import axios from 'axios';
+import axios from "../api/axios";
 import { useNavigate } from 'react-router-dom';
   
   const FeedbackPage = () => {

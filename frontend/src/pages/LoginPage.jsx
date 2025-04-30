@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Container, VStack, Heading, Box, Input, Button, useColorModeValue, useToast } from '@chakra-ui/react';
 import { InputGroup, InputRightElement } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import axios from "axios";
+import axios from "../api/axios";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 

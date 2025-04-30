@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import EventCard from '../components/EventCard'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+import axios from "../api/axios";
 import { useState } from 'react'
 
 const ConferenceHomePage = () => {

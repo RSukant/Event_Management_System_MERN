@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Container, VStack, Heading, Box, Input, Button, useColorModeValue, useToast, Select } from '@chakra-ui/react';
-import axios from "axios";
+import axios from "../api/axios";
 import { Textarea } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 

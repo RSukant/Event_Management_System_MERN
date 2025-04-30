@@ -3,7 +3,7 @@ import { MdEmail, MdHelp, MdSupportAgent } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom'
 import { useToast } from '@chakra-ui/react'
 import { useState } from 'react';
-import axios from 'axios'
+import axios from "../api/axios";
   
   const SupportPage = () => {
     const [help, setHelp] = useState({
