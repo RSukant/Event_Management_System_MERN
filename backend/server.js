@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json()); //allows us to accept json data in the req.body
 
 app.use(cors({
-    origin: 'https://event-management-system-mern-1-s784.onrender.com',
+    origin: 'https://event-management-system-mern-2.onrender.com',
     credentials: true
 }));
 
